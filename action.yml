@@ -42,7 +42,7 @@ runs:
         path: |
           ${{ env.BICEP_CONFIG_PATH }}/bicepVersionCheck.json
           ${{ env.BICEP_CONFIG_PATH }}/bin/bicep
-        key: '"bicep" | ${{ inputs.bicepversion }}'
+        key: '"bicep" | ${{ env.BICEP_VERSION }}'
     
     #
     # Install bicep
@@ -54,4 +54,4 @@ runs:
       run: |
         az bicep install --version "${BICEP_VERSION}"
       env:
-        BICEP_VERSION: ${{ inputs.bicepversion }}
+        BICEP_VERSION: ${{ env.BICEP_VERSION }}
